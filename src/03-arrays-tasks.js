@@ -327,8 +327,9 @@ function getPositivesCount(arr) {
  *   [ 'nine','eight','nine','eight'] => [ 'eight','eight','nine','nine']
  *   [ 'one','one','one','zero' ]     => [ 'zero','one','one','one' ]
  */
-function sortDigitNamesByNumericOrder(/* arr */) {
-  throw new Error('Not implemented');
+function sortDigitNamesByNumericOrder(arr) {
+  const digitNames = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'];
+  return arr.sort((a, b) => digitNames.indexOf(a) - digitNames.indexOf(b));
 }
 
 /**
@@ -343,8 +344,8 @@ function sortDigitNamesByNumericOrder(/* arr */) {
  *   [ -1, 1, -1, 1 ]      => 0
  *   [ 1, 10, 100, 1000 ]  => 1111
  */
-function getItemsSum(/* arr */) {
-  throw new Error('Not implemented');
+function getItemsSum(arr) {
+  return arr.reduce((acc, curr) => acc + curr, 0);
 }
 
 /**
@@ -359,8 +360,8 @@ function getItemsSum(/* arr */) {
  *  [ -1, 'false', null, 0 ] => 2
  *  [ null, undefined, NaN, false, 0, '' ]  => 6
  */
-function getFalsyValuesCount(/* arr */) {
-  throw new Error('Not implemented');
+function getFalsyValuesCount(arr) {
+  return arr.filter((item) => !item).length;
 }
 
 /**
@@ -392,8 +393,8 @@ function findAllOccurrences(arr, item) {
  *    [1, 2, 3, 4, 5]                   => '1,2,3,4,5'
  *    ['rock', 'paper', 'scissors']     => 'rock,paper,scissors'
  */
-function toStringList(/* arr */) {
-  throw new Error('Not implemented');
+function toStringList(arr) {
+  return arr.join(',');
 }
 
 
@@ -423,8 +424,26 @@ function toStringList(/* arr */) {
  *      { country: 'Russia',  city: 'Saint Petersburg' }
  *    ]
  */
-function sortCitiesArray(/* arr */) {
-  throw new Error('Not implemented');
+function sortCitiesArray(arr) {
+  function sortCities(a, b) {
+    if (a.country > b.country) {
+      return 1;
+    }
+    if (a.country < b.country) {
+      return -1;
+    }
+
+    if (a.city > b.city) {
+      return 1;
+    }
+
+    if (a.city < b.city) {
+      return -1;
+    }
+
+    return 0;
+  }
+  return arr.sort(sortCities);
 }
 
 /**
